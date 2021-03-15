@@ -20,25 +20,32 @@ public class TicTac
         }
         System.out.println("Comput Letter is: " + ComputLetter+" User Letter is : " + UserLetter);
         showBoard(board);
-        int userMove = UserMove(board);
+        userMove(board,UserLetter);
         showBoard(board);
     }
-    public static int UserMove(char[] board)
+    public static void userMove(char[] board,char symbol)
     {
         Scanner sc = new Scanner(System.in);
         Integer[] validCells = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-
-        while (true)
+	Boolean ans=false;
+        while (ans==false)
         {
-            System.out.println("What is your next move ? (1-9): ");
+            System.out.println("What is your next move ? (1-9");
             int index = sc.nextInt();
             if (Arrays.asList(validCells).contains(index) && isSpaceFree(board, index))
-                return index;
-
+            {
+                board[index] = symbol;
+                ans=true;
+            }
+            else
+            {
+                System.out.println("Invalid Choice, please enter a number between 1-9: ");
+            }
         }
-
     }
+
+
     private static boolean isSpaceFree(char[] board, int index)
     {
         return board[index] == ' ';
@@ -73,4 +80,3 @@ public class TicTac
         return  board;
     }
 }
-

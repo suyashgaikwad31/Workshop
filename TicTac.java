@@ -1,7 +1,7 @@
 import java.util.Locale;
 import java.util.Scanner;
 
-public class TicTacToeGame
+public class TicTac
 {
     public static void main(String[] args)
     {

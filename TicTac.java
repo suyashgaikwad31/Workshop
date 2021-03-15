@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -19,25 +20,28 @@ public class TicTac
         }
         System.out.println("Comput Letter is: " + ComputLetter+" User Letter is : " + UserLetter);
         showBoard(board);
-        move(board,UserLetter);
+        int userMove = UserMove(board);
         showBoard(board);
+    }
+    public static int UserMove(char[] board)
+    {
+        Scanner sc = new Scanner(System.in);
+        Integer[] validCells = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
+
+        while (true)
+        {
+            System.out.println("What is your next move ? (1-9): ");
+            int index = sc.nextInt();
+            if (Arrays.asList(validCells).contains(index) && isSpaceFree(board, index))
+                return index;
+
+        }
 
     }
-    public static void move(char[] board,char symbol) {
-    Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the number from 1 to 9 ");
-        int index=sc.nextInt();
-        if(board[index]==' ')
-        {
-            board[index]=symbol;
-        }
-        else
-            {
-                System.out.println("Invalid Choice");
-
-        }
-
+    private static boolean isSpaceFree(char[] board, int index)
+    {
+        return board[index] == ' ';
     }
     public static char chooseLetter()
     {

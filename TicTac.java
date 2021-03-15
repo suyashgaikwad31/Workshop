@@ -19,6 +19,25 @@ public class TicTac
         }
         System.out.println("Comput Letter is: " + ComputLetter+" User Letter is : " + UserLetter);
         showBoard(board);
+        move(board,UserLetter);
+        showBoard(board);
+
+
+    }
+    public static void move(char[] board,char symbol) {
+    Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number from 1 to 9 ");
+        int index=sc.nextInt();
+        if(board[index]==' ')
+        {
+            board[index]=symbol;
+        }
+        else
+            {
+                System.out.println("Invalid Choice");
+
+        }
+
     }
     public static char chooseLetter()
     {
